@@ -7,14 +7,17 @@
     "eslint": "^4.12.1",
     "eslint-config-standard-jsx": "^4.0.2",
     "eslint-plugin-react": "^7.5.1",
+    "isomorphic-fetch": "^2.2.1",
+    "node-fetch": "^1.7.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "z-schema": "^3.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "node utilities/schema-validation.js && react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "lint-fix": "eslint --fix src"

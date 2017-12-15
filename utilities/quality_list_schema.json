@@ -1,0 +1,41 @@
+{
+  "title": "Quality List",
+  "description": "The master list of qualities to be refered to",
+  "type": "array",
+  "items": {
+    "description": "A quality",
+    "type": "object",
+    "properties": {
+      "title": {
+        "description": "The title of the quality",
+        "type": "string"
+      },
+      "extra-titles": {
+        "description": "Extra text for the title that is based on the value of the quality",
+        "type": "array",
+        "items": {
+          "description": "An extra title for a certain value / range of values",
+          "type": "object",
+          "properties": {
+            "target": {
+              "description": "The target value for determining which extra title to use",
+              "type": "integer"
+            },
+            "text": {
+              "description": "The text of the extra title",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": {
+        "description": "A detailed description of quality",
+        "type": "string"
+      },
+      "image": {
+        "description": "A png bytestring to go along with the quality",
+        "type": "string"
+      }
+    }
+  }
+}

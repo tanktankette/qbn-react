@@ -1,0 +1,40 @@
+{
+  "text": "Earum ipsam amet reprehenderit enim architecto similique mollitia. Est \nquo repudiandae tempore doloremque velit. Ex aperiam aspernatur ea. Unde\n quasi quia minus repudiandae velit ab. Aut consequatur incidunt atque \nnostrum debitis odit iusto velit.",
+  "choices": [
+    {
+      "text": "Non mollitia nostrum cupiditate est delectus eum voluptatem.",
+      "link": 1,
+      "effects": [
+        {
+          "quality_id": 1,
+          "value": 1,
+          "adjust": "+"
+        },
+        {
+          "quality_id": 2,
+          "value": 1,
+          "adjust": "-"
+        }
+      ],
+      "requirements": [
+        {
+          "quality_id": 2,
+          "value": 2,
+          "comparison": "GT"
+        }
+      ]
+    },
+    {
+      "text": "Non mollitia nostrum cupiditate est delectus eum voluptatem.",
+      "link": 1,
+      "effects": [
+        {
+          "quality_id": 1,
+          "value": 2,
+          "adjust": "+"
+        }
+      ],
+      "requirements": []
+    }
+  ]
+}
