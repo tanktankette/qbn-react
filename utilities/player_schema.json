@@ -1,0 +1,29 @@
+{
+  "title": "Player",
+  "description": "A player's current state",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The player's name",
+      "type": "string"
+    },
+    "qualities": {
+      "description": "The player's list of qualities",
+      "type": "array",
+      "items": {
+        "description": "One of the player's qualities",
+        "type": "object",
+        "properties": {
+          "quality_id": {
+            "description": "The id of the quality in the master list",
+            "type": "integer"
+          },
+          "value": {
+            "description": "The current value for that quality",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "title": "Storylet",
+  "description": "A small piece of story from a larger narative",
+  "type": "object",
+  "properties": {
+    "text": {
+      "description": "The main text of the storylet",
+      "type": "string"
+    },
+    "choices": {
+      "description": "The list of choices that can potentially be selected",
+      "type": "array",
+      "items": {
+        "description": "A choice that can potentially be selected",
+        "type": "object",
+        "properties": {
+          "text": {
+            "description": "The text of the choice",
+            "type": "string"
+          },
+          "link": {
+            "description": "The storylet that this choice will link to, leave blank to link to home page",
+            "type": "integer"
+          },
+          "requirements": {
+            "description": "The list of requirements for the choice",
+            "type": "array",
+            "items": {
+              "description": "A requirement",
+              "type": "object",
+              "properties": {
+                "quality_id": {
+                  "description": "The ID of the quality to check",
+                  "type": "integer"
+                },
+                "value": {
+                  "description": "The value to compare to",
+                  "type": "integer"
+                },
+                "comparison": {
+                  "description": "How to compare target and quality value",
+                  "type": "string",
+                  "enum": ["LT", "EQ", "GT"]
+                }
+              }
+            }
+          },
+          "effects": {
+            "description": "The list of effects this choice will have on player qualities",
+            "type": "array",
+            "items": {
+              "description": "The effect this choice will have on player quality",
+              "type": "object",
+              "properties": {
+                "quality_id": {
+                  "description": "ID of the quality to be changed",
+                  "type": "integer"
+                },
+                "value": {
+                  "description": "How much the quality will be adjusted / what it will be adjusted to",
+                  "type": "integer"
+                },
+                "adjust": {
+                  "description": "How to adjust quality",
+                  "type": "string",
+                  "enum": ["-", "=", "+"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

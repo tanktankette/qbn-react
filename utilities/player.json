@@ -1,0 +1,17 @@
+{
+  "name": "Nick",
+  "qualities": [
+    {
+      "quality_id": 0,
+      "value": 1
+    },
+    {
+      "quality_id": 1,
+      "value": 9
+    },
+    {
+      "quality_id": 2,
+      "value": 6
+    }
+  ]
+}
