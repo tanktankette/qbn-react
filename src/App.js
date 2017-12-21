@@ -1,19 +1,46 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import Home from './Home'
 import './App.css'
+/* global fetch */
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      character: {
+        name: 'test',
+        qualities: [
+          {
+            id: 0,
+            value: 3
+          }
+        ]
+      }
+    }
+    this.changeLocation = this.changeLocation.bind(this)
+  }
+
+  changeLocation (e) {
+    this.setState({location: e.target.value})
+  }
+
+  componentWillMount () {
+    fetch('https://qbn-react.firebaseio.com/qualities.json')
+      .then(res => res.json())
+      .then(data => this.setState({qualities: data}))
+    fetch('https://qbn-react.firebaseio.com/storylets.json')
+      .then(res => res.json())
+      .then(data => this.setState({storylets: data}))
+  }
+
   render () {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>Welcome to React</h1>
-        </header>
-        <p className='App-intro'>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Home
+        character={this.state.character}
+        qualities={this.state.qualities}
+        storylets={this.state.storylets}
+        changeLocation={this.changeLocation}
+      />
     )
   }
 }
