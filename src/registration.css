@@ -1,0 +1,35 @@
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  width: 25vw;
+}
+
+div input, div button{
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  opacity: .25;
+}
+
+.registerPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  top: 20vh;
+  width: 30vw;
+  height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  background: lightgray;
+  position: absolute;
+}
