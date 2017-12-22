@@ -1,42 +1,18 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import Registration from './Registration'
 import Home from './Home'
+import Storylet from './Storylet'
 import './App.css'
 /* global fetch */
 
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
-=======
-import Storylet from './Storylet'
-import './App.css'
-/* global fetch */
->>>>>>> storylet
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-<<<<<<< HEAD
-      character: {
-        name: 'test',
-        qualities: [
-          {
-            id: 0,
-            value: 3
-          }
-        ]
-      }
-    }
-    this.changeLocation = this.changeLocation.bind(this)
-    this.loadCharacter = this.loadCharacter.bind(this)
-  }
-
-  loadCharacter (newCharacter) {
-    if (newCharacter.qualities === undefined) newCharacter.qualities = []
-    this.setState({character: newCharacter})
-=======
-      location: 2,
+      location: -2,
       character: {
         name: 'test',
         qualities: {
@@ -46,6 +22,12 @@ class App extends Component {
     }
     this.changeLocation = this.changeLocation.bind(this)
     this.changeCharacter = this.changeCharacter.bind(this)
+    this.loadCharacter = this.loadCharacter.bind(this)
+  }
+
+  loadCharacter (newCharacter) {
+    if (newCharacter.qualities === undefined) newCharacter.qualities = {0: 1}
+    this.setState({character: newCharacter})
   }
 
   changeCharacter (e) {
@@ -65,7 +47,6 @@ class App extends Component {
     }
     this.setState({character: character})
     this.changeLocation({target: {value: choice.link}})
->>>>>>> storylet
   }
 
   changeLocation (e) {
@@ -82,34 +63,35 @@ class App extends Component {
   }
 
   render () {
-<<<<<<< HEAD
-    return (
-    <section>
-      <Registration changeCharacte={this.loadCharacter} />
-      <Home
-        character={this.state.character}
-        qualities={this.state.qualities}
-        storylets={this.state.storylets}
-        changeLocation={this.changeLocation}
-      />
-    </section>
-    )
-=======
-    if (this.state.storylets !== undefined && this.state.location !== -1) {
-      return (
-        <Storylet storylet={this.state.storylets[this.state.location]}
-          changeLocation={this.changeLocation}
-          qualities={this.state.qualities}
-          character={this.state.character}
-          changeCharacter={this.changeCharacter}
-        />
-      )
+    if (this.state.storylets !== undefined) {
+      if (this.state.location === -2) {
+        return (
+          <Registration loadCharacter={this.loadCharacter} changeLocation={this.changeLocation} />
+        )
+      } else if (this.state.location === -1) {
+        return (
+          <Home
+            character={this.state.character}
+            qualities={this.state.qualities}
+            storylets={this.state.storylets}
+            changeLocation={this.changeLocation}
+          />
+        )
+      } else {
+        return (
+          <Storylet storylet={this.state.storylets[this.state.location]}
+            changeLocation={this.changeLocation}
+            qualities={this.state.qualities}
+            character={this.state.character}
+            changeCharacter={this.changeCharacter}
+          />
+        )
+      }
     } else {
       return (
         <div>loading</div>
       )
     }
->>>>>>> storylet
   }
 }
 

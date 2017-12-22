@@ -21,15 +21,15 @@ export default class Home extends Component {
   render () {
     let qualityRows = []
     if (this.props.qualities !== undefined) {
-      for (let quality of this.props.character.qualities) {
-        let masterQuality = this.props.qualities[quality.id]
+      for (const [id, value] of Object.entries(this.props.character.qualities)) {
+        let masterQuality = this.props.qualities[id]
         let extraTitle = ''
         for (let extra of masterQuality['extra-titles']) {
-          if (quality.value > extra.value) extraTitle = extra.text
+          if (value > extra.value) extraTitle = extra.text
         }
         qualityRows.push(
           <section>
-            <div>{masterQuality.title}: {quality.value} - {extraTitle}</div> <br />
+            <div>{masterQuality.title}: {value} - {extraTitle}</div> <br />
             <div>{masterQuality.description}</div>
           </section>
         )

@@ -80,7 +80,10 @@ export default class Registration extends Component {
     }
     fetch('https://us-central1-qbn-react.cloudfunctions.net/api/login', pkg)
       .then((res) => res.json())
-      .then((data) => this.props.changeCharacter(data))
+      .then((data) => {
+        this.props.loadCharacter(data)
+        this.props.changeLocation({target: {value: -1}})
+      })
   }
 
   render () {
